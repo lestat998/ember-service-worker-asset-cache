@@ -50,7 +50,7 @@ self.addEventListener('install', (event) => {
                 let error = new Error(`Request for ${url} failed with status ${response.statusText}`);
 
                 if (LENIENT_ERRORS) {
-                  console.warn(`Not caching ${url} due to ${error}`);
+                  console.warn(`Not caching test ${url} due to ${error}`);
                   return;
                 } else {
                   throw error;
@@ -60,7 +60,7 @@ self.addEventListener('install', (event) => {
               return cache.put(url, response);
             })
             .catch(function(error) {
-              console.error(`Not caching ${url} due to ${error}`);
+              console.error(`Not caching test ${url} due to ${error}`);
             });
         }));
       })
