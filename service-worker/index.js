@@ -43,7 +43,7 @@ self.addEventListener('install', (event) => {
       .open(CACHE_NAME)
       .then((cache) => {
         return Promise.all(CACHE_URLS.map((url) => {
-          let request = new Request(url, { mode: REQUEST_MODE });
+          let request = new Request(url.replace(/-\b[0-9a-f]{32}\.map$/, ''), { mode: REQUEST_MODE });
           return fetch(request)
             .then((response) => {
               if (response.status >= 400) {
